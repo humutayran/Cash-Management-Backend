@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.*;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/users")
@@ -22,15 +24,15 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UserEntity>> listUsers() {
-        List<UserEntity> users = userService.findAllUsers();
-        return new ResponseEntity<>(users, HttpStatus.OK);
+    public ResponseEntity<List<UserDto>> listUsers() {
+        List<UserDto> users = userService.findAllUsers();
+        return new ResponseEntity<>(users, OK);
     }
 
     @PostMapping
     public ResponseEntity<UserDto> addUser(@RequestBody UserEntity user) {
         UserDto userDto = userService.addUser(user);
-        return new ResponseEntity<>(userDto, HttpStatus.CREATED);
+        return new ResponseEntity<>(userDto, CREATED);
     }
 
 

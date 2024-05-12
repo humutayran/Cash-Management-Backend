@@ -21,20 +21,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserEntity> findAllUsers() {
+    public List<UserDto> findAllUsers() {
         List<UserEntity> users = userRepository.findAll();
-        return users.stream().collect(Collectors.toList());
+        return users.stream().map(UserMapper.INSTANCE::entityToDto).collect(Collectors.toList());
     }
 
-    @Override
-    public UserDto getUser() {
-        return null;
-    }
 
     @Override
     public UserDto addUser(UserEntity user) {
-        userRepository.save(user);
-        UserDto userDto = UserMapper.INSTANCE.entityToDto(user);
-        return userDto;
+        UserEntity saved = userRepository.save(user);
+        return UserMapper.INSTANCE.entityToDto(saved);
     }
 }

@@ -6,7 +6,6 @@ import com.example.cashmanagementspring.model.UserEntity;
 import java.util.List;
 
 public interface UserService {
-    List<UserEntity> findAllUsers();
-    UserDto getUser();
+    List<UserDto> findAllUsers();
     UserDto addUser(UserEntity user);
 }
