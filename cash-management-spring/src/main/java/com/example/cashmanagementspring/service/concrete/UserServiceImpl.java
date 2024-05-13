@@ -29,4 +29,14 @@ public class UserServiceImpl implements UserService {
         UserEntity saved = userRepository.save(user);
         return UserMapper.INSTANCE.entityToDto(saved);
     }
+
+    @Override
+    public UserDto getUser(Long id) {
+        return UserMapper.INSTANCE.entityToDto(getUserById(id));
+    }
+
+    protected UserEntity getUserById(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow();
+    }
 }
