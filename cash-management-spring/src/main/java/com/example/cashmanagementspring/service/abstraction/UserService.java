@@ -1,13 +1,14 @@
 package com.example.cashmanagementspring.service.abstraction;
 
-import com.example.cashmanagementspring.dto.UserDto;
+import com.example.cashmanagementspring.dto.request.UserRequestDto;
+import com.example.cashmanagementspring.dto.response.UserResponseDto;
 import com.example.cashmanagementspring.model.UserEntity;
 
 import java.util.List;
 
 public interface UserService {
-    List<UserDto> findAllUsers();
-    UserDto addUser(UserEntity user);
-
-    UserDto getUser(Long id);
+    List<UserResponseDto> findAllUsers();
+    UserResponseDto addUser(UserRequestDto user);
+    UserResponseDto getUser(Long id);
+    void deleteUser(Long id);
 }

@@ -1,16 +1,15 @@
-package com.example.cashmanagementspring.dto;
+package com.example.cashmanagementspring.dto.request;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
-    private Long id;
+public class UserRequestDto {
     private String username;
     private String email;
+    private String password;
+
 }
